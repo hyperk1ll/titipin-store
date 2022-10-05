@@ -103,23 +103,7 @@
     
     <body> 
     <!-- Header -->
-    <header>
-        <div class="px-3 py-2">
-            <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
-                <a class="nav-link d-inline-block me-auto" href="#" style="font-family:'Nunito';font-size:40px;color:#FC4C02;"><strong>TITIPIN</strong></a>
-                <div class="d-flex align-items-center">
-                    <div class="input-group w-50">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn" style="background-color:#FC4C02;" type="submit"><img src="./assets/search.png" style="width: 32px;" /></button>
-                    </div>
-                    <button class="btn ms-3 d-inline-block" type="submit"><img src="./assets/heart.png" /></button>
-                    <button class="btn me-auto d-inline-block" type="submit"><img src="./assets/basket.png" /></button> 
-                    <button class="btn d-inline-block" type="submit" style="font-family:'Nunito';font-size:20px;color:#FC4C02;">Sign In</button> 
-                    <button class="btn d-inline-block" type="submit" style="font-family:'Nunito';font-size:20px;color:#FC4C02;">Register</button> 
-                </div>
-            </div>
-        </div>
-    </header>
+        <?php include("./header.php"); ?>
 
         <!-- Horizontal Scroll -->
         <section style="background-color: #AD3300;">
@@ -127,22 +111,22 @@
         <div class="media-scroller snaps-inline">
         
             <div class="media-element">
-                <img src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400" alt="">
+                <img src="./assets/1.png" alt="">
             </div>
             <div class="media-element">
-                <img src="https://images.unsplash.com/photo-1642190672487-22bde32965f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400" alt="">
+                <img src="./assets/2.jpg" alt="">
             </div>
             <div class="media-element">
-                <img src="https://images.unsplash.com/photo-1641841344411-49dbd02896f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400" alt="">
+                <img src="./assets/3.jpg" alt="">
             </div>
             <div class="media-element">
-                <img src="https://images.unsplash.com/photo-1643223723262-7ce785730cf6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400" alt="">
+                <img src="./assets/4.jpg" alt="">
             </div>
             <div class="media-element">
-                <img src="https://images.unsplash.com/photo-1640938776314-4d303f8a1380?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400" alt="">
+                <img src="./assets/6.jpg" alt="">
             </div>
             <div class="media-element">
-                <img src="https://images.unsplash.com/photo-1641259041823-e09935369105?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400" alt="">
+                <img src="./assets/6.webp" alt="">
             </div>
             <div class="media-element">
                 <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400" alt="">
