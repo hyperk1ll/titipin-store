@@ -20,7 +20,7 @@
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold mb-4" style="color:#FC4C02">
                 Associate E-Commerce
             </h6>
             <p>
@@ -41,7 +41,7 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold mb-4" style="color:#FC4C02">
                 Newsletter
             </h6>
             <p>
@@ -60,7 +60,7 @@
             <!-- Grid column -->
             <div class="col-md-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <h6 class="text-uppercase fw-bold mb-4" style="color:#FC4C02">Contact</h6>
             <!-- Right -->
             <style>.link-secondary{text-decoration:none;}</style>
             <div class="link-groups-icon">
