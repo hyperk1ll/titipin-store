@@ -173,16 +173,17 @@
         </div>
         </section>
 
-    <!-- Custom Link Req
+    <!-- Custom Link Req -->
     <section class="box-custom">
         <div class="modal-content rounded-4 shadow">
             <div class="modal-header p-5 pb-4 border">
                 <h6 class="fw mb-0" style="color: #FC4C02;">Custom Link Req</h6>
                 <div class="form-floating mb-3">
                     <input type="url" class="form-control rounded-3" id="floatingInput" placeholder="add your own desire link to khilaf">
+                    asdasd
                 </div>
             </div>
-        </div> -->
+        </div>
 
     </section>
 
