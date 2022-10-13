@@ -180,7 +180,6 @@
                 <h6 class="fw mb-0" style="color: #FC4C02;">Custom Link Req</h6>
                 <div class="form-floating mb-3">
                     <input type="url" class="form-control rounded-3" id="floatingInput" placeholder="add your own desire link to khilaf">
-                    asdasd
                 </div>
             </div>
         </div>
