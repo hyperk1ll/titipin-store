@@ -23,7 +23,7 @@
                         <div class="col-md text-end" style="margin-top:10px">
                             <div class="dropdown" style="color:#FC4C02">
                                 <a class="btn dropdown-toggle" style="color:#FC4C02;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-user" style="margin-right: 5px;"></i><?php echo $_SESSION['username'] ?>
+                                    <img alt=""><i class="fa-solid fa-user" style="margin-right: 5px;"></i></img> <?php echo $_SESSION['username'] ?>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" style="color:#FC4C02;" href="#">Profile</a></li>
