@@ -20,7 +20,7 @@
 			$valid = FALSE;
 		} 
 		
-		$password = test_input($_POST['pass']);
+		$password = test_input(($_POST['pass']));
 		if ($password == ''){
 			$error_password = "Password is required";
 			$valid = FALSE;
@@ -47,8 +47,8 @@
 		}
 		
 		if ($valid){
-			$address = $db->real_escape_string($address); 
-			$query = " INSERT INTO user (username, nama_user, password, email, no_telepon) VALUES ('$username', '$name', '$password', '$email', '$telepon')";
+			// $address = $db->real_escape_string($address); 
+			$query = " INSERT INTO user (username, nama_user, password, email, no_telepon) VALUES ('$username', '$name', MD5('".$password."'), '$email', '$telepon')";
 			echo $query;
 			$result = $db->query($query);
 			if (!$result){

@@ -12,25 +12,56 @@
         input[type='searchwishlist']{
             text-align: right;
         }
+        #dataUser{
+            font-family: 'Nunito';
+        }
     </style>
 </head>
   <body> 
-    <?php include('./header.php'); ?>
+    <?php include('./header.php'); 
+    require_once("./db_login.php");
+    $username = $_SESSION['username'];
+    $query = "SELECT * FROM user WHERE username ='".$username."'";
+    $result = $db->query($query);
+    if(!$result){
+        die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+    }
+    $row = $result -> fetch_assoc();?>
     
     <!-- Isi Utama Wishlist -->
     <div class="card" style="margin:30px;background-color: white;">
         <div class="card-body" style="background-color: white;margin-bottom:75px;">
-            <div class="row">
-                <div class="col-md">
-                    <div class="d-flex-column">
-                        <div>Username:</div>
-                        <div>Name:</div>
-                        <div>Name:</div>
-                        <div>Name:</div>
+            <div class="row d-flex justify-content-between">
+                <div class="col-md text-end" style="margin-top:80px;">
+                </div>
+                <div class="col-md-6 d-flex flex-row" id="dataUser" style="margin-top:70px;">
+                    <div>
+                        <img src="./assets/profile.png" class="rounded-circle" alt="width:200px;height:200px;"style="margin:0 20px 0 0;"></img>
+                    </div>
+                    <div class="d-inline-block" style="margin: 40px 0 0px 0px;">
+                        <table>
+                            <tr>
+                                <td>Username</td>
+                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['username'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Nama</td>
+                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['nama_user'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['email'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>No Telepon</td>
+                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['no_telepon'] ?></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
+                <div class="col-sm">
+                </div>
             </div>
-            
         </div>
     </div>
 
