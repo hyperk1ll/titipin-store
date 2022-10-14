@@ -11,14 +11,14 @@
 			$valid = FALSE;
 		} 
 		
-		$password = test_input(MD5($_POST['pass']));
+		$password = test_input($_POST['pass']);
 		if ($password == ''){
 			$error_password = "Password is required";
 			$valid = FALSE;
 		}
 		
 		if ($valid){
-			$query = " SELECT * FROM user WHERE username='".$username."' AND password='".$password."' ";
+			$query = " SELECT * FROM user WHERE username='".$username."' AND password=MD5('".$password."') ";
 			$result = $db->query($query);
 			if (!$result){
 				die ("Could not query the database: <br />". $db->error);
