@@ -8,7 +8,7 @@
                 <div class="container-fluid align-items-center" style="grid-template-columns: 1fr 2fr;">
                     <div class="row d-flex-row">
                         <div class="col-sm">
-                            <a class="nav-link d-inline-block" href="#" style="font-family:'Nunito';font-size:40px;color:#FC4C02;"><strong>TITIPIN</strong></a>
+                            <a class="nav-link d-inline-block" href="index.php" style="font-family:'Nunito';font-size:40px;color:#FC4C02;"><strong>TITIPIN</strong></a>
                         </div>
                         <div class="col-xl-6" style="width: 40rem;">
                             <div class="d-flex align-items-center">
