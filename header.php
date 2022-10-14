@@ -2,15 +2,16 @@
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <?php
         session_start();
-        $username = $_SESSION['username'];
-        require_once('./db_login.php');
-        $query = "SELECT * FROM user WHERE username ='".$username."'";
-        $result = $db->query($query);
-        if(!$result){
-            die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
-        }
-        $row = $result -> fetch_assoc(); 
-        if(isset($_SESSION['username'])&&(isset($_SESSION['logged-in']))){?>
+        if(isset($_SESSION['username'])&&(isset($_SESSION['logged-in']))){
+            $username = $_SESSION['username'];
+            require_once('./db_login.php');
+            $query = "SELECT * FROM user WHERE username ='".$username."'";
+            $result = $db->query($query);
+            if(!$result){
+                die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+            }
+            $row = $result -> fetch_assoc(); ?>
+
         <div class="px-3 py-2">
             <div class="container-fluid align-items-center" style="grid-template-columns: 1fr 2fr;">
                 <div class="row d-flex-row">

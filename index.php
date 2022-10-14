@@ -116,7 +116,7 @@
     
     <body> 
     <!-- Header -->
-        <?php include("./header.php"); ?>
+    <?php include("./header.php"); ?>
 
         <!-- Carousel -->
         <section>
