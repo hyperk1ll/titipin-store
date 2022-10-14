@@ -9,6 +9,7 @@
 		die ("Tidak menghubungkan database: <br />". $db -> connect_error);
 	}
 
+	//Test Connection
 	function test_input($data){
 		$data = trim($data);
 		$data = stripslashes($data);
