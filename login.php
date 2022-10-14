@@ -27,7 +27,7 @@
 				if ($result->num_rows>0){ 
 					$_SESSION['username'] = $username;
 					$_SESSION['logged-in'] = true;
-					header("Location: index.php?=user".$_SESSION['username']); //ganti ini kalo mau redirect ke halaman lain
+					header("Location: index.php?=".$_SESSION['username']); //ganti ini kalo mau redirect ke halaman lain
 					exit;
 				} 
 				else{
