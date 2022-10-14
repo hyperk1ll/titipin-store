@@ -21,19 +21,19 @@
         <div class="card-header" style="background-color: #D9D9D9;">
             <div class="input-group ms-auto" style="width: 400px;">
                 <input class="form-control" type="searchwishlist" placeholder="Search your wishlist" aria-label="Search">
-                <button class="btn" style="background-color:#FC4C02;" type="submit"><img src="./search.png" style="width: 32px;" /></button>
+                <button class="btn" style="background-color:#FC4C02;" type="submit"><img src="./assets/search.png" style="width: 32px;" /></button>
             </div>
         </div>
         <div class="card-body" style="background-color: #D9D9D9;margin-bottom:75px;">
             <div class="text-center d-flex-column p-3">
-                <img src="./Kocheng.png" style="width:350px">
+                <img src="./assets/Kocheng.png" style="width:350px">
                 <p class="mt-2" style="font-family:'Nunito';font-size:20px;color:#FC4C02;"><strong>Your wishlist still empty ? ? ?</strong></p>
                 <button class="btn btn-rounded w-25" style="background-color:#FC4C02;color:white;" type="submit">Add Some Stuff</button>
             </div>
         </div>
     </div>
 
-    <?php include('./header.php'); ?>
+    <?php include('./footer.php'); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
     
