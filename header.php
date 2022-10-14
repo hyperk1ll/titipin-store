@@ -1,4 +1,5 @@
 <header>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <?php
         session_start();
         require_once('./db_login.php');
@@ -19,8 +20,17 @@
                                 <button class="btn me-auto d-inline-block" type="submit"><img src="./assets/basket.png" /></button> 
                             </div>
                         </div>
-                        <div class="col-md text-end" style="margin-top:5px">
-                            <a href="logout.php"><button class="btn d-inline-block" type="submit" style="font-family:'Nunito';font-size:20px;color:#FC4C02;">Logout</button></a>
+                        <div class="col-md text-end" style="margin-top:10px">
+                            <div class="dropdown" style="color:#FC4C02">
+                                <a class="btn dropdown-toggle" style="color:#FC4C02;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img alt=""><i class="fa-solid fa-user" style="margin-right: 5px;"></i></img> <?php echo "Hello, ".$_SESSION['username'] ?>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" style="color:#FC4C02;" href="profile.php">Profile</a></li>
+                                    <li><a class="dropdown-item" style="color:#FC4C02;" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" style="color:#FC4C02;" href="logout.php">Logout</a></li>
+                                </ul>
+                            </div>
                         </div>   
                     </div>
                 </div>
@@ -44,13 +54,16 @@
                                 <button class="btn me-auto d-inline-block" type="submit"><img src="./assets/basket.png" /></button> 
                             </div>
                         </div>
-                        <div class="col-md text-end" style="margin-top:5px">
-                            <a href="login.php"><button class="btn d-inline-block" type="submit" style="font-family:'Nunito';font-size:20px;color:#FC4C02;">Sign In</button></a>
-                        </div>   
+                        <div class="col-md text-end" style="margin-top:5px;">
+                            <a href="login.php"><button class="btn d-inline-block" type="submit" style="font-family:'Nunito';font-size:20px;color:#FC4C02;">Login</button></a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         <?php
         }
         ?>
+        <script src="https://kit.fontawesome.com/8cc297976c.js" crossorigin="anonymous"></script>
+
 </header>
