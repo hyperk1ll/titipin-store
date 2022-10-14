@@ -11,7 +11,7 @@
 			$valid = FALSE;
 		} 
 		
-		$password = test_input(MD5($_POST['pass']));
+		$password = test_input($_POST['pass']);
 		if ($password == ''){
 			$error_password = "Password is required";
 			$valid = FALSE;
