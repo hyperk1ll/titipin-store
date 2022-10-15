@@ -1,3 +1,14 @@
+<link href='https://fonts.googleapis.com/css?family=Nunito' rel = 'stylesheet'>
+
+<style>
+
+    footer {
+        font-family: "nunito";
+    }
+
+</style>
+
+
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
@@ -15,10 +26,10 @@
     <section class="">
         <div class="container text-center text-md-start mt-5">
         <!-- Grid row -->
-        <div class="row mt-3">
+        <div class="row mt-4">
 
             <!-- Grid column -->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4" style="color:#FC4C02">
                 Associate E-Commerce
@@ -39,7 +50,7 @@
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4" style="color:#FC4C02">
                 Newsletter
@@ -58,7 +69,7 @@
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-4">
+            <div class="col-md-4 col-lg-3 col-xl-3" >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4" style="color:#FC4C02">Contact</h6>
             <!-- Right -->
@@ -74,12 +85,6 @@
                     <i class="bi bi-instagram"></i>
                 </a>
                 <div class="col-md-4"><br><br> 
-                <p>
-                <a href="#!" class="text-reset">Syarat & Ketentuan</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Kebijakan Privasi</a>
-                </p>
                 </div>
                 
             </div>
