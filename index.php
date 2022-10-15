@@ -292,7 +292,7 @@
                                 </div>
                                 <div>
                                     <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    <a style="text-decoration: none;" href="item_description.php?id_barang='<?php echo $row->id_barang ?>.'"><div style="color:black;"><?php echo $row->nama_produk ?></div> </a>
+                                    <a style="text-decoration: none;" href="item_description.php?id_barang=<?php echo $row->id_barang?>"><div style="color:black;"><?php echo $row->nama_produk ?></div> </a>
                                     </div>
                                     <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
                                     <?php 
@@ -338,13 +338,7 @@
                         <?php                   
                         preg_match('([a-zA-Z]{3})',$match[0],$match2);?>
 
-                        <?php
-                        $pic = 0;
-                        $pic++;
-                        if ($pic == 2) {break;}
-                        ?>
-
-                        <a href="item_description.php=?".$id_barang><img src="https://www.hlj.com/productimages/<?php echo( $match2[0] );?>/<?php echo( $match[0] );?>_0.jpg"style="width: 250px;height:250px"></a>
+                        <img src="https://www.hlj.com/productimages/<?php echo( $match2[0] );?>/<?php echo( $match[0] );?>_0.jpg"style="width: 250px;height:250px">
                             <div class="card-body" style="align-items: stretch;">
                             <?php $status = $row -> status;
                                 if($status == "Ready Stock"){
@@ -358,7 +352,7 @@
                                 </div>
                                 <div>
                                     <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                        <?php echo $row->nama_produk ?>
+                                        <a style="text-decoration: none;" href="item_description.php?id_barang=<?php echo $row->id_barang?>"><div style="color:black;"><?php echo $row->nama_produk ?></div></a>
                                     </div>
                                     <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
                                     <?php 
