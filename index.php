@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -134,19 +134,19 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/carouselPic/Mai.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/carouselPic/Shirou.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/carouselPic/Sinon.png" alt="Card image cap">
                             </div>
                         </div>
                     </div>
