@@ -35,6 +35,10 @@
             border-bottom: 1px;
         }
 
+        .quantity {
+            display: inline-block;
+        }
+
 
     </style>
 
@@ -93,19 +97,21 @@
                         <div class="d-flex" style="font-family: nunito; font-size:30px; font-weight:bold; color :#FC4C02;">
                             Rp 500.000
                         </div>
-                        <div class="quantity" style="font-family: 'nunito'; "><b>Quantity</b></div>
-                    
-                        <div class="col-md-2">
-                            <div class="input-group justify-content-center">
-                                <span class="input-group-btn">
-                                    <button type="button" class="quantity-left-minus"  data-type="minus" data-field="" style="background-color: white; color: red; border: none; font-family: 'nunito'; font-weight: bold; font-size:26px;">-</button>
-                                </span>
-                                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="0" max="100" style="border: none; margin-left: 15px; font-family: 'nunito'; font-weight: bold;">
-                                <span class="input-group-btn">
-                                    <button type="button" class="quantity-right-plus" data-type="plus" data-field="" style="background-color: white; color: green; border: none; font-family: 'nunito'; font-weight: bold; margin-right: 55px; font-size:24px;">+</button>
-                                </span>
-                            </div>
+                        <div class="row">
+                            <div class="quantity" style="font-family: 'nunito'; "><b>Quantity</b></div>                
+                                <div class="col-md-2">
+                                    <div class="input-group justify-content-center">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="quantity-left-minus"  data-type="minus" data-field="" style="background-color: white; color: red; border: none; font-family: 'nunito'; font-weight: bold; font-size:26px;">-</button>
+                                        </span>
+                                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="0" max="100" style="border: none; margin-left: 15px; font-family: 'nunito'; font-weight: bold; text-align: center; size: 1; border:#FC4C02 1px solid;">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="quantity-right-plus" data-type="plus" data-field="" style="background-color: white; color: green; border: none; font-family: 'nunito'; font-weight: bold; font-size:24px;">+</button>
+                                        </span>
+                                    </div>
+                                </div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="wishlist">
