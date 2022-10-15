@@ -1,3 +1,4 @@
+<?php include("./session_start.php"); ?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -72,7 +73,6 @@
             display: inline-block;
             font-weight: bold;
             font-family: "nunito";
-            background: #77F292;
             }
 
             .form-link-req {
@@ -264,6 +264,7 @@
             <div class="row">
                 <!-- Ngambil data dari database -->
                 <?php
+                require_once('./db_login.php');
                 $query = 'SELECT * FROM best_seller WHERE nama_ecommerce ="Amazon"';
                 $result = $db ->query($query);
                 if(!$result){
@@ -273,18 +274,25 @@
                 while($row = $result->fetch_object()){ ?>
                     <div class="col-md-2">
                         <div class="card d-flex align-items-strech" style="height: 28rem;">  
-                                        
+                                      
                             <?php 
                             // $matches = array();
                             preg_match('(B[0-9]{2}[0-9A-Z]{7}|[0-9]{9}(?:X|[0-9]))',$row->link_ecommerce,$match);?>
-                            <a href="item_description.php=?".$id_barang><img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=<?php echo( $match[0] );?>&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250/>" style="width: 250px;height:250px"></a>
+                            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=<?php echo( $match[0] );?>&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250/>" style="width: 250px;height:250px">
                             <div class="card-body" style="align-items: stretch;">
-                                <div class="product-status">
+                                <?php $status = $row -> status;
+                                if($status == "Ready Stock"){
+                                    $color = 'background: #77F292';
+                                }
+                                elseif($status == "Pre Order"){
+                                    $color = 'background: #AD77F2';
+                                } ?>
+                                <div class="product-status" style="<?php echo $color?>;">
                                     <?php echo $row->status ?>
                                 </div>
                                 <div>
                                     <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                        <?php echo $row->nama_produk ?>
+                                    <a style="text-decoration: none;" href="item_description.php?id_barang='<?php echo $row->id_barang ?>.'"><div style="color:black;"><?php echo $row->nama_produk ?></div> </a>
                                     </div>
                                     <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
                                     <?php 
@@ -295,6 +303,7 @@
                             </div>
                         </div>
                     </div>
+                        
                 <?php $i++;
                         if ($i==7){
                             break;
@@ -337,7 +346,14 @@
 
                         <a href="item_description.php=?".$id_barang><img src="https://www.hlj.com/productimages/<?php echo( $match2[0] );?>/<?php echo( $match[0] );?>_0.jpg"style="width: 250px;height:250px"></a>
                             <div class="card-body" style="align-items: stretch;">
-                                <div class="product-status">
+                            <?php $status = $row -> status;
+                                if($status == "Ready Stock"){
+                                    $color = 'background: #77F292';
+                                }
+                                elseif($status == "Pre Order"){
+                                    $color = 'background: #AD77F2';
+                                } ?>
+                                <div class="product-status" style="<?php echo $color?>;">
                                     <?php echo $row->status ?>
                                 </div>
                                 <div>
@@ -383,7 +399,14 @@
                         <div class="card d-flex align-items-strech" style="height: 28rem;">              
                             <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
                             <div class="card-body" style="align-items: stretch;">
-                                <div class="product-status">
+                                <?php $status = $row -> status;
+                                if($status == "Ready Stock"){
+                                    $color = 'background: #77F292';
+                                }
+                                elseif($status == "Pre Order"){
+                                    $color = 'background: #AD77F2';
+                                } ?>
+                                <div class="product-status" style="<?php echo $color?>;">
                                     <?php echo $row->status ?>
                                 </div>
                                 <div>

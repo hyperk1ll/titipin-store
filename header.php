@@ -1,7 +1,7 @@
 <header>
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <?php
-        session_start();
+        
         if(isset($_SESSION['username'])&&(isset($_SESSION['logged-in']))){
             $username = $_SESSION['username'];
             require_once('./db_login.php');
@@ -50,7 +50,7 @@
                 <div class="container-fluid align-items-center" style="grid-template-columns: 1fr 2fr;">
                     <div class="row">
                         <div class="col-md">
-                            <a class="nav-link d-inline-block" href="#" style="font-family:'Nunito';font-size:40px;color:#FC4C02;"><strong>TITIPIN</strong></a>
+                            <a class="nav-link d-inline-block" href="index.php" style="font-family:'Nunito';font-size:40px;color:#FC4C02;"><strong>TITIPIN</strong></a>
                         </div>
                         <div class="col-xl-6" style="width: 40rem;">
                             <div class="d-flex align-items-center">
@@ -58,7 +58,7 @@
                                     <input class="form-control" type="search" placeholder="" aria-label="Search">
                                     <button class="btn" style="background-color:#FC4C02;" type="submit"><img src="./assets/search.png" style="width: 32px;" /></button>
                                 </div>
-                                <a href="wishlist_empty.php"><button class="btn ms-3 d-inline-block" type="submit"><img src="./assets/heart.png" /></button></a>
+                                <a href="login.php"><button class="btn ms-3 d-inline-block" type="submit"><img src="./assets/heart.png" /></button></a>
                                 <button class="btn me-auto d-inline-block" type="submit"><img src="./assets/basket.png" /></button> 
                             </div>
                         </div>

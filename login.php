@@ -18,7 +18,7 @@
 		}
 		
 		if ($valid){
-			$query = " SELECT * FROM user WHERE username='".$username."' AND password=MD5('".$password."') ";
+			$query = " SELECT * FROM user WHERE username='".$username."' AND password='".$password."' ";
 			$result = $db->query($query);
 			if (!$result){
 				die ("Could not query the database: <br />". $db->error);
@@ -27,7 +27,7 @@
 				if ($result->num_rows>0){ 
 					$_SESSION['username'] = $username;
 					$_SESSION['logged-in'] = true;
-					header("Location: index.php?=".$_SESSION['username']); //ganti ini kalo mau redirect ke halaman lain
+					header("Location: index.php?=user".$_SESSION['username']); //ganti ini kalo mau redirect ke halaman lain
 					exit;
 				} 
 				else{
