@@ -45,26 +45,26 @@
                         </div>
                     </div>
                     <div class="d-inline-block" style="margin: 40px 0 0px 0px;">
-                        <table>
+                        <table id="table">
                             <tr>
-                                <td>Username</td>
-                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['username'] ?></td>
+                                <td>Username :</td>
+                                <td contenteditable="false"> &nbsp;&nbsp;&nbsp;<?php echo $row['username'] ?></td>
                             </tr>
                             <tr>
-                                <td>Nama</td>
-                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['nama_user'] ?></td>
+                                <td>Nama :</td>
+                                <td contenteditable="false">&nbsp;&nbsp;&nbsp;<?php echo $row['nama_user'] ?></td>
                             </tr>
                             <tr>
-                                <td>Email</td>
-                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['email'] ?></td>
+                                <td>Email : </td>
+                                <td contenteditable="false">&nbsp;&nbsp;&nbsp;<?php echo $row['email'] ?></td>
                             </tr>
                             <tr>
-                                <td>No Telepon</td>
-                                <td>: &nbsp;&nbsp;&nbsp;<?php echo $row['no_telepon'] ?></td>
+                                <td>No Telepon: </td>
+                                <td contenteditable="false">&nbsp;&nbsp;&nbsp;<?php echo $row['no_telepon'] ?></td>
                             </tr>
                         </table>
                         <div class="d-flex justify-content-end">
-                        <button class="btn btn-sm d-inline-block" type="submit" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem;font-family:'Nunito';font-size:20px;background-color:#FC4C02;color:white;margin-top:5px;"><i class="fa-solid fa-pen-to-square" style="margin-right:3px;" ></i>Edit</button>
+                        <button class="btn btn-sm d-inline-block" type="submit" onclick="inlineEdit()" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem;font-family:'Nunito';font-size:20px;background-color:#FC4C02;color:white;margin-top:5px;"><i class="fa-solid fa-pen-to-square" style="margin-right:3px;" ></i>Edit</button>
                         </div>
                     </div>
                 </div>
