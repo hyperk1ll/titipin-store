@@ -262,102 +262,44 @@
         <div class="card-body" style="background-color: #D9D9D9;margin : 20px;">
         <div class="container-fluid p-5">
             <div class="row">
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
+                <!-- Ngambil data dari database -->
+                <?php
+                $query = 'SELECT * FROM best_seller WHERE nama_ecommerce ="Amazon"';
+                $result = $db ->query($query);
+                if(!$result){
+                    die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+                }
+                $i = 1;
+                while($row = $result->fetch_object()){ ?>
+                    <div class="col-md-2">
+                        <div class="card d-flex align-items-strech" style="height: 28rem;">  
+                                        
+                            <?php 
+                            // $matches = array();
+                            preg_match('(B[0-9]{2}[0-9A-Z]{7}|[0-9]{9}(?:X|[0-9]))',$row->link_ecommerce,$match);?>
+                            <a href="item_description.php=?".$id_barang><img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=<?php echo( $match[0] );?>&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250/>" style="width: 250px;height:250px"></a>
+                            <div class="card-body" style="align-items: stretch;">
+                                <div class="product-status">
+                                    <?php echo $row->status ?>
                                 </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
+                                <div>
+                                    <div class="d-flex" style="font-family: nunito; font-weight:600;">
+                                        <?php echo $row->nama_produk ?>
+                                    </div>
+                                    <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
+                                    <?php 
+                                    $harga = (($row->harga)*15000);
+                                    echo "Rp ". number_format($harga, 0, ".", ".")."<br />"; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php $i++;
+                        if ($i==7){
+                            break;
+                        }} ?>
+                
             </div>
         </div>
         </div>
@@ -369,102 +311,54 @@
         <div class="card-body" style="background-color: #D9D9D9;margin : 20px;">
         <div class="container-fluid p-5">
             <div class="row">
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
+                <!-- Ngambil data dari database -->
+                <?php
+                $query = 'SELECT * FROM best_seller WHERE nama_ecommerce ="HBJ"';
+                $result = $db ->query($query);
+                if(!$result){
+                    die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+                }
+                $i = 1;
+                while($row = $result->fetch_object()){ ?>
+                    <div class="col-md-2">
+                        <div class="card d-flex align-items-strech" style="height: 28rem;">
+
+                        <?php 
+                        preg_match('([a-zA-Z]+[0-9]+)',$row->link_ecommerce,$match);?>
+
+                        <?php                   
+                        preg_match('([a-zA-Z]{3})',$match[0],$match2);?>
+
+                        <?php
+                        $pic = 0;
+                        $pic++;
+                        if ($pic == 2) {break;}
+                        ?>
+
+                        <a href="item_description.php=?".$id_barang><img src="https://www.hlj.com/productimages/<?php echo( $match2[0] );?>/<?php echo( $match[0] );?>_0.jpg"style="width: 250px;height:250px"></a>
+                            <div class="card-body" style="align-items: stretch;">
+                                <div class="product-status">
+                                    <?php echo $row->status ?>
                                 </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
+                                <div>
+                                    <div class="d-flex" style="font-family: nunito; font-weight:600;">
+                                        <?php echo $row->nama_produk ?>
+                                    </div>
+                                    <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
+                                    <?php 
+                                    $harga = (($row->harga)*15000);
+                                    echo "Rp ". number_format($harga, 0, ".", ".")."<br />"; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php $i++;
+                        if ($i==7){
+                            break;
+                        }} ?>
+                
+            </div>
             </div>
         </div>
         </div>
@@ -476,103 +370,40 @@
         <div class="card-body" style="background-color: #D9D9D9;margin : 20px;">
         <div class="container-fluid p-5">
             <div class="row">
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
+                <!-- Ngambil data dari database -->
+                <?php
+                $query = 'SELECT * FROM best_seller WHERE nama_ecommerce ="ebay"';
+                $result = $db ->query($query);
+                if(!$result){
+                    die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+                }
+                $i = 1;
+                while($row = $result->fetch_object()){ ?>
+                    <div class="col-md-2">
+                        <div class="card d-flex align-items-strech" style="height: 28rem;">              
+                            <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
+                            <div class="card-body" style="align-items: stretch;">
+                                <div class="product-status">
+                                    <?php echo $row->status ?>
                                 </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
+                                <div>
+                                    <div class="d-flex" style="font-family: nunito; font-weight:600;">
+                                        <?php echo $row->nama_produk ?>
+                                    </div>
+                                    <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
+                                    <?php 
+                                    $harga = (($row->harga)*15000);
+                                    echo "Rp ". number_format($harga, 0, ".", ".")."<br />"; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card">              
-                        <img src="https://cdn.kyou.id/items/122035-pop-up-parade-figure-kanade-yoisaki-hatsune-miku-colorful-stage.jpg.webp"/>
-                        <div class="card-body">
-                            <div class="product-status">Ready Stock</div>
-                            <div>
-                                <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    Pop Up Parade Figure Kanade Yoisaki
-                                </div>
-                                <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    Rp 500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <?php $i++;
+                        if ($i==7){
+                            break;
+                        }} ?>
+            </div>    
         </div>
         </div>
     </section>
