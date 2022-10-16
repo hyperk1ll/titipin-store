@@ -112,7 +112,7 @@
 				<a href = "login.php" style="font-family:'Nunito'; color:#FC4C02; text-decoration:none;"> Already have an account? </button> <br> <br>
 
 				<div class="col-md-12 text-center"> <!-- Buat nengahin tombol -->
-					<button class = "tombol" name = "submit" type = "submit" value =""> Register </button>
+					<button class = "btn btn-primary" name = "submit" type = "submit" value =""> Register </button>
 				</div>
 			</div>
 		</form>
