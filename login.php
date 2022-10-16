@@ -18,7 +18,7 @@
 		}
 		
 		if ($valid){
-			$query = " SELECT * FROM user WHERE username='".$username."' AND password='".$password."' ";
+			$query = " SELECT * FROM user WHERE username='".$username."' AND password=MD5('".$password."') ";
 			$result = $db->query($query);
 			if (!$result){
 				die ("Could not query the database: <br />". $db->error);

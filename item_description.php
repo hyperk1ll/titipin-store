@@ -49,19 +49,7 @@
     </style>
 
 </head>
-  <body> 
-    <?php 
-    include('./header.php'); 
-    require_once("./db_login.php");
-    $username = $_SESSION['username'];
-    $query = "SELECT * FROM user WHERE username ='".$username."'";
-    $result = $db->query($query);
-    if(!$result){
-        die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
-    }
-    $row = $result -> fetch_assoc();?>
-    <br>
-    
+  <body>  n  
     <section class="container-fluid">
         <!-- justify-content-center untuk mengatur posisi form agar berada di tengah-tengah -->
         <div class="card">

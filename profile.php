@@ -37,13 +37,75 @@
                 </div>
                 <div class="col-md-6 d-flex flex-row" id="dataUser" style="margin-top:70px;">
                     <div class="d-flex flex-column">
-                        <img src="./assets/profile.png" class="rounded-circle" alt="width:200px;height:200px;"style="margin:0 20px 0 0;"></img>
-                        <div style="height:0px;width:0px;overflow: hidden;" >
-                            <input type="file" id="fileInput" >
-                        </div>
-                        <div class="d-flex justify-content-center" style="margin-right:20px;">
+                        <form action="" class="form" id="form" enctype="multipart/form-data" method="post" >
+                            <div class="upload">
+                                <?php 
+                                $usename = $row['username'];
+                                $nama = $row['nama_user'];
+                                $image = $row['image'];
+                                ?>
+                                <img src="./assets/<?php echo $image;?>" class="rounded-circle" alt="width:200px;height:200px;"style="margin:0 20px 0 0;"></img>
+                            </div>
+                            <div class="round" >
+                                <input type="hidden" name="username" value="<?php echo $username ?>">
+                                <input type="hidden" name="nama" value="<?php echo $nama ?>">
+                                <input type="file" id="inputImage" name="inputImage" accept=".jpg, .jpeg, .png">
+                            </div>
+                        </form>
+                        
+                        <!-- <div class="d-flex justify-content-center" style="margin-right:20px;">
                             <button class="btn w-75" type="button" style="background-color:#FC4C02;margin-top:3px;color:white;" onclick="uploadFile();">Choose File</button>
-                        </div>
+                        </div> -->
+                        <script type="text/javascript">
+                            document.getElementById("inputImage").onchange = function(){
+                                document.getElementById('form').submit();
+                            };
+                        </script>
+                        <?php
+                            if(isset($_FILES["image"]["name"])){
+                                $username = $_POST['username'];
+                                $nama = $_POST['nama'];        
+
+                                $imageName = $_FILES["image"]["name"];
+                                $imageSize = $_FILES["image"]["size"];
+                                $tmpName = $_FILES["image"]["tmp_name"];
+
+                                //image validation
+                                $validImageExtension = ['jpg','jpeg','png'];
+                                $imageExtension = explode('.', $imageName);
+                                $imageExtension = strtolower(end($imageExtension));
+                                if(!in_array($imageExtension,$validImageExtension)){
+                                    echo
+                                    "
+                                        <script>
+                                            alert('Invalid image extension!');
+                                            document.location.href='./assets';
+                                        </script>
+                                    ";
+                                }
+                                elseif($imageSize >1200000){
+                                    echo
+                                    "
+                                    <script>
+                                        alert('Image size is too large');
+                                        document.location.href = './assets';
+                                    </script>
+                                    ";
+                                }
+                                else{
+                                    $newImageName = $name."-".date("Y.m.d")."-".date("h.i.sa");
+                                    $newImageName .= '.' . $imageExtension;
+                                    $query = "UPDATE user SET image = '$newImageName' WHERE username = $username";
+                                    $db->query($query);
+                                    move_uploaded_file($tmpName,'img/'.$newImageName);
+                                    echo 
+                                    "
+                                    <script>
+                                        document.location.href = './assets';
+                                    </script>
+                                    ";
+                                }
+                            }?>
                     </div>
                     <div class="d-inline-block" style="margin: 40px 0 0px 0px;">
                         <table id="table">
