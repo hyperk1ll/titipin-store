@@ -1,3 +1,12 @@
+<style>
+
+    .border-bottom {
+        border-bottom: 1px;
+    }
+
+</style>
+
+
 <header>
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <?php
@@ -24,14 +33,14 @@
                                 <input class="form-control" type="search" placeholder="" aria-label="Search">
                                 <button class="btn" style="background-color:#FC4C02;" type="submit"><img src="./assets/search.png" style="width: 32px;" /></button>
                             </div>
-                            <a href="wishlist_empty.php"><button class="btn ms-3 d-inline-block" type="submit"><img src="./assets/heart.png" /></button></a>
-                            <button class="btn me-auto d-inline-block" type="submit"><img src="./assets/basket.png" /></button> 
+                            <a href="wishlist.php"><button class="btn ms-3 d-inline-block" type="submit"><img src="./assets/heart.png" /></button></a>
+                            <a href="cart_best_seller.php"><button class="btn me-auto d-inline-block" type="submit"><img src="./assets/basket.png" /></button></a> 
                         </div>
                     </div>
                     <div class="col-md text-end" style="margin-top:10px">
                         <div class="dropdown" style="color:#FC4C02">
                             <a class="btn dropdown-toggle" style="color:#FC4C02;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img alt=""><i class="fa-solid fa-user" style="margin-right: 5px;"></i></img> <?php echo "Hello, ".$row['nama_user']; ?>
+                                <img src="./img/<?php echo $row['image'];?>" style="width:30px;height:30px" class="rounded-circle" alt=""></img> <?php echo "Hello, ".$row['nama_user']; ?>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" style="color:#FC4C02;" href="profile.php">Profile</a></li>
@@ -43,6 +52,7 @@
                 </div>
             </div>
         </div>
+        <div class="border-bottom"></div>
     <?php       
         }
         else{?>

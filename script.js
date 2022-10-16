@@ -1,17 +1,16 @@
-// function uploadFile(){
-//     document.getElementById('inputImage').click();
-// }
+function uploadFile(){
+    document.getElementById('image').click();
+}
 
 let btn = document.getElementById('btn-wishlist');
-let icon = document.getElementById('wishlistIcon');
+let icon = document.getElementById('wishlisticonunclicked');
 btn.addEventListener('click',function onclick(){
-    if(icon.value == ""){
-        icon.innerHTML = icon.innerHTML.replace("wishlisticonclicked");
+    if(icon.id == "wishlisticonunclicked"){
+        icon.id = 'wishlisticonclicked';
     }
-    else if(icon.value == "wishlisticonclicked"){
-        icon.innerHTML = icon.innerHTML.replace("");
+    else if(icon.id == "wishlisticonclicked"){
+        icon.id = "wishlisticonunclicked";
     }
-    
 });
 
 function inlineEdit(){
