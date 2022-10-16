@@ -49,7 +49,9 @@
     </style>
 
 </head>
-  <body>  n  
+  <body>
+    <?php include("./header.php"); ?>
+    <br>
     <section class="container-fluid">
         <!-- justify-content-center untuk mengatur posisi form agar berada di tengah-tengah -->
         <div class="card">
@@ -150,7 +152,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="wishlist">
-                                    <button class="btn btn-block" id="btn-wishlist" style="background-color: white; color: grey; width: 100%; border-radius: 10px; border-style: solid; border-width: 0.001em; border-color: grey;">Wishlist &nbsp;<i class="fa-solid fa-heart" id=""></i></button>
+                                    <a href="addtowishlist.php?id=<?php echo $row->id_barang; ?>"><button class="btn btn-block" id="btn-wishlist" style="background-color: white; color: grey; width: 100%; border-radius: 10px; border-style: solid; border-width: 0.001em; border-color: grey;">Wishlist &nbsp;<i class="fa-solid fa-heart" id="wishlisticonunclicked"></i></button></a>
                                 </div>
                             </div>
                             <div class="col-md-7">

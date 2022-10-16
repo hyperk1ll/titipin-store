@@ -76,7 +76,7 @@
 				<a href = "register.php" style="font-family:'Nunito'; color:#FC4C02; text-decoration:none;"> Don't have an account? </button> <br> <br>
 				
 				<div class="col-md-12 text-center"> <!-- Buat nengahin tombol -->
-					<button class = "tombol" type = "submit" name = "submit" value = "submit"> Login </button>
+					<button class = "btn btn-primary" type = "submit" name = "submit" value = "submit"> Login </button>
 				</div>
 			</div>
 		</form>

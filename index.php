@@ -135,19 +135,19 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/1.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/2.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/3.png" alt="Card image cap">
                             </div>
                         </div>
                     </div>
@@ -161,19 +161,19 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/4.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/5.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/6.png" alt="Card image cap">
                             </div>
                         </div>
                     </div>
@@ -187,19 +187,19 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/7.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/8.png" alt="Card image cap">
                             </div>
                         </div>
 
                         <div class="col-md-4 clearfix d-none d-md-block">
                             <div class="card mb-2">
-                                <img class="card-img-top" src="./assets/2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./assets/9.png" alt="Card image cap">
                             </div>
                         </div>
                     </div>
@@ -256,63 +256,6 @@
         </section>
     </section>
 
-    <!-- Product List : Amazon Best Seller -->
-    <section class="product-list-content">  
-        <div class="fw-bolder Amazon" style="margin: 20px; font-size: 35px; font-family: nunito; color:#FC4C02;"><strong>Amazon Best Seller</strong></div>
-        <div class="card-body" style="background-color: #D9D9D9;margin : 20px;">
-        <div class="container-fluid p-5">
-            <div class="row">
-                <!-- Ngambil data dari database -->
-                <?php
-                require_once('./db_login.php');
-                $query = 'SELECT * FROM best_seller WHERE nama_ecommerce ="Amazon"';
-                $result = $db ->query($query);
-                if(!$result){
-                    die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
-                }
-                $i = 1;
-                while($row = $result->fetch_object()){ ?>
-                    <div class="col-md-2">
-                        <div class="card d-flex align-items-strech" style="height: 28rem;">  
-                                      
-                            <?php 
-                            // $matches = array();
-                            preg_match('(B[0-9]{2}[0-9A-Z]{7}|[0-9]{9}(?:X|[0-9]))',$row->link_ecommerce,$match);?>
-                            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=<?php echo( $match[0] );?>&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250/>" style="width: 250px;height:250px">
-                            <div class="card-body" style="align-items: stretch;">
-                                <?php $status = $row -> status;
-                                if($status == "Ready Stock"){
-                                    $color = 'background: #77F292';
-                                }
-                                elseif($status == "Pre Order"){
-                                    $color = 'background: #AD77F2';
-                                } ?>
-                                <div class="product-status" style="<?php echo $color?>;">
-                                    <?php echo $row->status ?>
-                                </div>
-                                <div>
-                                    <div class="d-flex" style="font-family: nunito; font-weight:600;">
-                                    <a style="text-decoration: none;" href="item_description.php?id_barang=<?php echo $row->id_barang?>"><div style="color:black;"><?php echo $row->nama_produk ?></div> </a>
-                                    </div>
-                                    <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
-                                    <?php 
-                                    $harga = (($row->harga)*15000);
-                                    echo "Rp ". number_format($harga, 0, ".", ".")."<br />"; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        
-                <?php $i++;
-                        if ($i==7){
-                            break;
-                        }} ?>
-                
-            </div>
-        </div>
-        </div>
-    </section>
 
     <!-- Product List : Hobby Link Japan Best Seller -->
     <section class="product-list-content">
@@ -369,6 +312,64 @@
                         }} ?>
                 
             </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Product List : Amazon Best Seller -->
+    <section class="product-list-content">  
+        <div class="fw-bolder Amazon" style="margin: 20px; font-size: 35px; font-family: nunito; color:#FC4C02;"><strong>Amazon Best Seller</strong></div>
+        <div class="card-body" style="background-color: #D9D9D9;margin : 20px;">
+        <div class="container-fluid p-5">
+            <div class="row">
+                <!-- Ngambil data dari database -->
+                <?php
+                require_once('./db_login.php');
+                $query = 'SELECT * FROM best_seller WHERE nama_ecommerce ="Amazon"';
+                $result = $db ->query($query);
+                if(!$result){
+                    die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+                }
+                $i = 1;
+                while($row = $result->fetch_object()){ ?>
+                    <div class="col-md-2">
+                        <div class="card d-flex align-items-strech" style="height: 28rem;">  
+                                      
+                            <?php 
+                            // $matches = array();
+                            preg_match('(B[0-9]{2}[0-9A-Z]{7}|[0-9]{9}(?:X|[0-9]))',$row->link_ecommerce,$match);?>
+                            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=<?php echo( $match[0] );?>&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250/>" style="width: 250px;height:250px">
+                            <div class="card-body" style="align-items: stretch;">
+                                <?php $status = $row -> status;
+                                if($status == "Ready Stock"){
+                                    $color = 'background: #77F292';
+                                }
+                                elseif($status == "Pre Order"){
+                                    $color = 'background: #AD77F2';
+                                } ?>
+                                <div class="product-status" style="<?php echo $color?>;">
+                                    <?php echo $row->status ?>
+                                </div>
+                                <div>
+                                    <div class="d-flex" style="font-family: nunito; font-weight:600;">
+                                    <a style="text-decoration: none;" href="item_description.php?id_barang=<?php echo $row->id_barang?>"><div style="color:black;"><?php echo $row->nama_produk ?></div> </a>
+                                    </div>
+                                    <div class="d-flex" style="font-family: nunito; font-size:20px; font-weight:bold; color :#FC4C02;">
+                                    <?php 
+                                    $harga = (($row->harga)*15000);
+                                    echo "Rp ". number_format($harga, 0, ".", ".")."<br />"; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                <?php $i++;
+                        if ($i==7){
+                            break;
+                        }} ?>
+                
             </div>
         </div>
         </div>

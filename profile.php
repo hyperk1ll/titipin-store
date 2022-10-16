@@ -152,9 +152,18 @@
                 <div class="card-body" style="background-color: white;margin-bottom:75px;">
                     <div class="row">
                         <div class="col">
+                            <?php 
+                                require_once("./db_login.php");
+                                $username = $_SESSION['username'];
+                                $query = "SELECT * from user where username='".$username."'";
+                                $result = $db->query($query);
+                                if(!$result){
+                                    die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+                                }
+                                $row = $result -> fetch_object(); ?>
                             <br>
                             <div class="saldo" style="font-size: 40px; font-family:nunito;"><strong>Total Saldo</strong></div>          
-                            <div class="saldo" style="font-size: 40px; font-family:nunito; color:#FC4C02;"><strong>Rp 1.500.000</strong></div>
+                            <div class="saldo" style="font-size: 40px; font-family:nunito; color:#FC4C02;"><strong><?php echo "Rp ". number_format($row->saldo, 0, ".", ".")."<br />"; ?></strong></div>
                             <br>
                             <br>
                             <div class="d-flex" id="pop_butt"><button class="btn w-15" style="background-color: #FC4C02; color: white; border-radius: 15px;font-family:nunito;">Top Up</button></strong></div>                                   
@@ -170,7 +179,7 @@
             });
 
             function closeTopUp() {
-                document.getElementById('kontol').addEventListener("click", function() {
+                document.getElementById('btntopup').addEventListener("click", function() {
                     document.querySelector('.topup').style.display = "none";
                 });
 
@@ -183,7 +192,7 @@
                         <div class="col-md-6">
                             <div class="d-flex card flex-column">
                                 <div class="card-header"><strong style="font-size: 20px;">Top Up Saldo</strong>
-                                <button id="kontol" style="color: red; font-size: 20px; float:right; transform:rotate(45deg); background-color: #F7F7F7; border: none; cursor:pointer;" onclick="closeTopUp()">
+                                <button id="btntopup" style="color: red; font-size: 20px; float:right; transform:rotate(45deg); background-color: #F7F7F7; border: none; cursor:pointer;" onclick="closeTopUp()">
                                 +
                                 </button>                           
                                 </div>                             
@@ -196,15 +205,35 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="scrollshippinglist">
-                                                Rp 1.500.000
+                                                <?php echo "Rp ". number_format($row->saldo, 0, ".", ".")."<br />"; ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="url" class="form-control custom-link-input" id="url" placeholder="silahkan ketik nominal">
+                                    <form action="" method="POST">
+                                        <div class="form-group">
+                                        <input type="number" class="form-control custom-link-input" id="uang" name="uang" placeholder="silahkan ketik nominal">
                                         <br>
-                                        <div class="d-flex"><button type="submit" class="btn w-15" style="background-color: #FC4C02; color: white; border-radius: 15px;font-family:nunito; float: right;">Top Up</button></strong></div>
-                                    </div>
+                                        <div class="d-flex"><button type="submit" name="submit" class="btn w-15" style="background-color: #FC4C02; color: white; border-radius: 15px;font-family:nunito; float: right;">Top Up</button></strong></div>
+                                        </div>
+                                        
+                                    </form>
+                                    <?php 
+                                        $saldoprev = $row->saldo;
+                                        $uang = $_POST['uang'];
+                                        $saldonew = $saldoprev + $uang;
+                                        if (isset($_POST['submit'])){
+                                            require_once("./db_login.php");
+                                            $username = $_SESSION['username'];
+
+
+                                            $query = "UPDATE user SET saldo=$saldonew where username='".$username."'";
+                                            $result = $db->query($query);
+                                            if(!$result){
+                                                die("Could not query the database: <br/>".$db->error."<br>Query: ".$query);
+                                            }
+                                        }
+                                        ?>
+                                    
                                     <br><br>
                                     <div class="border-bottom"></div>
                                     <br>
