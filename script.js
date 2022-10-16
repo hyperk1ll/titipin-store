@@ -1,6 +1,6 @@
-// function uploadFile(){
-//     document.getElementById('inputImage').click();
-// }
+function uploadFile(){
+    document.getElementById('image').click();
+}
 
 let btn = document.getElementById('btn-wishlist');
 let icon = document.getElementById('wishlistIcon');

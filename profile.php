@@ -44,28 +44,22 @@
                                 $nama = $row['nama_user'];
                                 $image = $row['image'];
                                 ?>
-                                <img src="./assets/<?php echo $image;?>" class="rounded-circle" alt="width:200px;height:200px;"style="margin:0 20px 0 0;"></img>
+                                <img src="./img/<?php echo $image;?>" class="rounded-circle" alt="" style="width:200px;height:200px;margin:0 20px 0 0;"></img>
                             </div>
-                            <div class="round" >
-                                <input type="hidden" name="username" value="<?php echo $username ?>">
-                                <input type="hidden" name="nama" value="<?php echo $nama ?>">
-                                <input type="file" id="inputImage" name="inputImage" accept=".jpg, .jpeg, .png">
+                            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" style="width: 0px;height:0px;overflow:hidden;">
+                            <div class="d-flex justify-content-center" style="margin-right:20px;">
+                                <button class="btn w-75" type="button" style="background-color:#FC4C02;margin-top:3px;color:white;" onclick="uploadFile();">Choose File</button>
                             </div>
                         </form>
-                        
-                        <!-- <div class="d-flex justify-content-center" style="margin-right:20px;">
-                            <button class="btn w-75" type="button" style="background-color:#FC4C02;margin-top:3px;color:white;" onclick="uploadFile();">Choose File</button>
-                        </div> -->
                         <script type="text/javascript">
-                            document.getElementById("inputImage").onchange = function(){
+                            document.getElementById("image").onchange = function(){
                                 document.getElementById('form').submit();
                             };
                         </script>
                         <?php
                             if(isset($_FILES["image"]["name"])){
-                                $username = $_POST['username'];
-                                $nama = $_POST['nama'];        
-
+                                $username = $row['username'];
+                                $nama = $row['nama_user'];       
                                 $imageName = $_FILES["image"]["name"];
                                 $imageSize = $_FILES["image"]["size"];
                                 $tmpName = $_FILES["image"]["tmp_name"];
@@ -79,7 +73,7 @@
                                     "
                                         <script>
                                             alert('Invalid image extension!');
-                                            document.location.href='./assets';
+                                            document.location.href='../titipin-store';
                                         </script>
                                     ";
                                 }
@@ -88,20 +82,26 @@
                                     "
                                     <script>
                                         alert('Image size is too large');
-                                        document.location.href = './assets';
+                                        document.location.href = '../titipin-store';
                                     </script>
                                     ";
                                 }
                                 else{
-                                    $newImageName = $name."-".date("Y.m.d")."-".date("h.i.sa");
+                                    $newImageName = $nama."-".date("Y.m.d")."-".date("h.i.sa");
                                     $newImageName .= '.' . $imageExtension;
-                                    $query = "UPDATE user SET image = '$newImageName' WHERE username = $username";
-                                    $db->query($query);
+                                    $query = "UPDATE user SET image = '$newImageName' WHERE username ='".$username."'";
+                                    $result = $db->query($query);
+                                    if (!$result){
+                                        die ("Could not the query the database: <br />" . $db->error . '<br>Query:' .$query);
+                                    } 
+                                    else {
+                                        $db->close();
+                                    }
                                     move_uploaded_file($tmpName,'img/'.$newImageName);
                                     echo 
                                     "
                                     <script>
-                                        document.location.href = './assets';
+                                        document.location.href = '../titipin-store/profile.php';
                                     </script>
                                     ";
                                 }
