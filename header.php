@@ -31,7 +31,7 @@
                     <div class="col-md text-end" style="margin-top:10px">
                         <div class="dropdown" style="color:#FC4C02">
                             <a class="btn dropdown-toggle" style="color:#FC4C02;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img alt=""><i class="fa-solid fa-user" style="margin-right: 5px;"></i></img> <?php echo "Hello, ".$row['nama_user']; ?>
+                                <img src="./img/<?php echo $row['image'];?>" style="width:30px;height:30px" class="rounded-circle" alt=""></img> <?php echo "Hello, ".$row['nama_user']; ?>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" style="color:#FC4C02;" href="profile.php">Profile</a></li>
