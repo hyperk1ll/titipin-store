@@ -38,7 +38,7 @@
     </head>
     
     <body> 
-	<?php include("./header.php"); ?>
+	<?php include("./session_start.php"); ?>
 	
 	<div class = "card border-0" style = "background-color:#F7F7F7;">
 		<br>
