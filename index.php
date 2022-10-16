@@ -330,7 +330,7 @@
                 $i = 1;
                 while($row = $result->fetch_object()){ ?>
                     <div class="col-md-2">
-                        <div class="card d-flex align-items-strech" style="height: 28rem;">
+                        <div class="card d-flex align-items-strech" style="height: 28rem; width: 250px;">
 
                         <?php 
                         preg_match('([a-zA-Z]+[0-9]+)',$row->link_ecommerce,$match);?>
@@ -338,7 +338,7 @@
                         <?php                   
                         preg_match('([a-zA-Z]{3})',$match[0],$match2);?>
 
-                        <img src="https://www.hlj.com/productimages/<?php echo( $match2[0] );?>/<?php echo( $match[0] );?>_0.jpg"style="width: 250px;height:250px">
+                        <img src="https://www.hlj.com/productimages/<?php echo( $match2[0] );?>/<?php echo( $match[0] );?>_0.jpg"style="width: 248px;height:250px">
                             <div class="card-body" style="align-items: stretch;">
                             <?php $status = $row -> status;
                                 if($status == "Ready Stock"){
