@@ -58,7 +58,7 @@
                         <div class="card-header">
                             <strong style="font-size: 20px;">Sadira Taruna Calvindoro</strong>      <!-- Parsing Nama User -->
                             <div style="float: right;">
-                                <a style="color: red; font-size: 20px">Edit Alamat</a>
+                                <a href="./checkout_input_address.php" style="color: red; font-size: 20px">Edit Alamat</a>
                             </div>
                         </div>
                         <div class="card-body">
