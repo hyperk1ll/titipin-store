@@ -15,14 +15,14 @@ btn.addEventListener('click',function onclick(){
 });
 
 function inlineEdit(){
-    var t = document.getElementById("table");
-    var trs = t.getElementsByTagName("tr");
-    var tds = null;
-    for (var i=0; i<trs.length; i++){
-        tds = trs[i].getElementsByTagName("td");
-        for (var n=0; n<tds.length;n++)
-        {
-            tds[n].contentEditable = "true";
-        }
+    var editable_elements = document.querySelectorAll("[contenteditable=false]");
+    var btnedit= document.getElementById('btnedit');
+    var btnsave= document.getElementById('btnsave');
+    for(var i=0; i<editable_elements.length; i++){
+        editable_elements[i].setAttribute("contenteditable", true);
     }
+    btnedit.style.display = 'none';
+    document.getElementById('btnsavehidden').id = 'btnsaveshow';
+
+
 }

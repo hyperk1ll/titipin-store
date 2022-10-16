@@ -16,6 +16,12 @@
         #dataUser{
             font-family: 'Nunito';
         }
+        #btnsavehidden{
+            display:none;
+        }
+        #btnsaveshow{
+            display:show;
+        }
     </style>
 </head>
   <body> 
@@ -79,7 +85,7 @@
                                     "
                                         <script>
                                             alert('Invalid image extension!');
-                                            document.location.href='./assets';
+                                            document.location.href='../titipin-store';
                                         </script>
                                     ";
                                 }
@@ -88,7 +94,7 @@
                                     "
                                     <script>
                                         alert('Image size is too large');
-                                        document.location.href = './assets';
+                                        document.location.href = '../titipin-store';
                                     </script>
                                     ";
                                 }
@@ -97,11 +103,11 @@
                                     $newImageName .= '.' . $imageExtension;
                                     $query = "UPDATE user SET image = '$newImageName' WHERE username = $username";
                                     $db->query($query);
-                                    move_uploaded_file($tmpName,'img/'.$newImageName);
+                                    move_uploaded_file($tmpName,'./assets/'.$newImageName);
                                     echo 
                                     "
                                     <script>
-                                        document.location.href = './assets';
+                                        document.location.href = '../titipin-store';
                                     </script>
                                     ";
                                 }
@@ -111,24 +117,84 @@
                         <table id="table">
                             <tr>
                                 <td>Username :</td>
-                                <td contenteditable="false"> &nbsp;&nbsp;&nbsp;<?php echo $row['username'] ?></td>
+                                <td><div id="username" contenteditable="false"><?php echo $row['username']?></div></td>
                             </tr>
                             <tr>
                                 <td>Nama :</td>
-                                <td contenteditable="false">&nbsp;&nbsp;&nbsp;<?php echo $row['nama_user'] ?></td>
+                                <td><div name="nama" contenteditable="false"><?php echo $row['nama_user'] ?></div></td>
                             </tr>
                             <tr>
                                 <td>Email : </td>
-                                <td contenteditable="false">&nbsp;&nbsp;&nbsp;<?php echo $row['email'] ?></td>
+                                <td><div name="email" contenteditable="false"><?php echo $row['email'] ?></div></td>
                             </tr>
                             <tr>
                                 <td>No Telepon: </td>
-                                <td contenteditable="false">&nbsp;&nbsp;&nbsp;<?php echo $row['no_telepon'] ?></td>
+                                <td><div name="no_telepon" contenteditable="false"><?php echo $row['no_telepon'] ?></div></td>
                             </tr>
                         </table>
                         <div class="d-flex justify-content-end">
-                        <button class="btn btn-sm d-inline-block" type="submit" onclick="inlineEdit()" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem;font-family:'Nunito';font-size:20px;background-color:#FC4C02;color:white;margin-top:5px;"><i class="fa-solid fa-pen-to-square" style="margin-right:3px;" ></i>Edit</button>
+                        <form action="" method="post">
+                        <button class="editUserBTN btn btn-sm" type="button" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem;font-family:'Nunito';font-size:20px;background-color:#FC4C02;color:white;margin-top:5px;"><i class="fa-solid fa-pen-to-square" style="margin-right:3px;" ></i>Edit</button>
+                        <button class="btn btn-sm" type="submit" id="btnsavehidden" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem;font-family:'Nunito';font-size:20px;background-color:#FC4C02;color:white;margin-top:5px;"><i class="fa-solid fa-pen-to-square" style="margin-right:3px;" ></i>Save</button>
+                        
+                    </form>
+                        <div class="modal fade" id="employeeEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form id="updateUser">
+                                        <div class="modal-body">
+                                            <input type="hidden" name="username" id="username">
+                                            <div class="mb-3">
+                                                <label for="">Nama</label>
+                                                <input type="text" name="nama" id="nama" class="form-control" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="">Email</label>
+                                                <input type="text" name="email" id="email" class="form-control" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="gender">No Telepon</label>
+                                                <input type = "notelp" class = "form-control" id = "notelp" name = "notelp" value = ""> </input>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+                        <script>
+                            $(document).on('click', '.editUserBTN', function() {
+                            var username = $(this).val();
+
+                            $.ajax({
+                                type: "GET",
+                                url: "edit_user.php?username=" + username,
+                                success: function(response) {
+
+                                    var res = jQuery.parseJSON(response);
+                                    if (res.status == 200) {
+
+                                        $('#username').val(res.data.username);
+                                        $('#nama').val(res.data.nama);
+                                        $('#email').val(res.data.email);
+                                        $('#notelepon').val(res.data.notelepon);
+                                        $('#employeeEditModal').modal('show');
+                                    }
+
+                                }
+                            });
+
+                            });
+                        </script>
+                        
+                    </div>
                     </div>
                 </div>
                 <div class="col-sm">
